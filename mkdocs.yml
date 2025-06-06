@@ -1,0 +1,9 @@
+site_name: jlheflin's Tips and Tricks
+site_url: https://jlheflin.github.io
+nav:
+  - Home: index.md
+  - About: about.md
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
