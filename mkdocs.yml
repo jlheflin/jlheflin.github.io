@@ -7,3 +7,12 @@ theme:
   name: material
   logo: assets/logo.png
   favicon: assets/logo.png
+markdown_extensions:
+  - pymdownx.arthmatex
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist.katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.0/contrib/auto-render.min.js
+  - js/math.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css
