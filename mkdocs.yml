@@ -1,18 +1,19 @@
 site_name: jlheflin's Tips and Tricks
 site_url: https://jlheflin.github.io
 nav:
-  - Home: index.md
-  - About: about.md
+  - 'Another one': about.md
+  - 'TOP LEVEL CAT':
+    - index.md
+    - TEST: about.md
+    - 'BOTTOM LEVEL CAT':
+      - About: about.md
 theme:
   name: material
   logo: assets/logo.png
   favicon: assets/logo.png
-markdown_extensions:
-  - pymdownx.arthmatex
-extra_javascript:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist.katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.0/contrib/auto-render.min.js
-  - js/math.js
-
-extra_css:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css
+  features:
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
