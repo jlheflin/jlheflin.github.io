@@ -1,22 +1,7 @@
 site_name: jlheflin's Tips and Tricks
 site_url: https://jlheflin.github.io
 nav:
-  - Home: index.md
-  - About: about.md
-  - Programs:
-    - programs/index.md
-    - Computational Chemistry:
-      - programs/computational_chemistry/index.md
-    - Shells:
-      - programs/shells/index.md
-  - Tools:
-    - tools/index.md
-  - Procedures:
-    - procedures/index.md
-  - Projects:
-    - projects/index.md
-  - Notes:
-    - notes/index.md
+  - 'NWChemEx Install Guide': nwchemex_install_instructions.md
 
 theme:
   name: material
