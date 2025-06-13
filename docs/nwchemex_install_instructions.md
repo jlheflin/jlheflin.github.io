@@ -2,7 +2,16 @@
 
 ## Setup
 
-I usually put libraries into `/home/jacob/Libraries`:
+Typically, setup involves having to obtain prerequisite software to be able to
+compile the NWChemEx stack. This includes the libraries Blas/OpenBlas and
+Libint2. For Blas/OpenBlas, the software can be downloaded via a package
+manager that has a package available that provides the library. Usually when
+a package is installed via the main package manager of an operating system,
+those libraries end up in the `/usr/lib` directory. This folder is usually
+checked by default by our current build system, CMake, to find the prerequisite
+software.
+
+Personally, I prefer putting libraries into `/home/jacob/Libraries` on my own system:
 
 ```bash
 cd /home/jacob/Libraries
@@ -10,6 +19,9 @@ curl -L -O https://github.com/evaleev/libint/releases/download/v2.6.0/libint-2.6
 tar xvf libint-2.6.0.tgz
 cd libint-2.6.0
 ```
+
+Knowing where the library is installed is important if you plan to download and compile
+the libraries from source. 
 
 #### Libint2 Build
 
