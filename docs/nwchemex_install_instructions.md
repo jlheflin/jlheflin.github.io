@@ -174,7 +174,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DOMPI_SKIP_MPICXX")
 
 Some things to note, if you need to install a version of ChemCache that has
 more basis sets available, you will most likely need to clone ChemCache and
-checkout the `generated_data` branch:
+check out the `generated_data` branch:
 ```bash
 # I like to keep outside projects in my /home/jacob/Projects folder
 cd /home/jacob/Projects
@@ -216,7 +216,7 @@ with the generated_data branch, this may cause the memory to be exceeded on your
 build process will take a while.
 
 Once the build is complete, you should have a folder named `install/` in the NWChemEx directory.
-We need to do a bit of cleanup since the NWChemEx install process isn't fully working yet.
+We need to do a bit of clean up since the NWChemEx install process isn't fully working yet.
 
 First, let's check out what is in the `install/` folder:
 
