@@ -2,7 +2,7 @@
 
 ## Setup
 
-I usually put libraries into /home/jacob/Libraries:
+I usually put libraries into `/home/jacob/Libraries`:
 
 ```bash
 cd /home/jacob/Libraries
@@ -14,9 +14,9 @@ cd libint-2.6.0
 #### Libint2 Build
 
 
-This tells cmake that the current source directory is the current file (-S),
+This tells `cmake` that the current source directory is the current file (-S),
 that we want the configuration and build to happen in the "build" directory
-(camke will create this folder if it doesn't exist), and that we would like
+(`cmake` will create this folder if it doesn't exist), and that we would like
 to set the `CMAKE_INSTALL_PREFIX` to ``` `pwd`/install, ``` which will resolve to
 ``/home/jacob/Libraries/libint-2.6.0/install`, meaning that the result of the build
 will be installed to that path.
@@ -25,8 +25,8 @@ will be installed to that path.
 cmake -S . -B build -DCMAKE_INSTALL_PREFIX=`pwd`/install
 ```
 
-If needed, you can confirm that the CMAKE_INSTALL_PREFIX variable was set via
-ccmake, but Ryan doesn't really like it when builds use ccmake so I would just
+If needed, you can confirm that the `CMAKE_INSTALL_PREFIX` variable was set via
+ccmake, but Ryan doesn't really like it when builds use `ccmake`, so I would just
 use to confirm variables.
 
 ```bash
@@ -42,7 +42,7 @@ the code.
 cmake --build build --target install --parallel 4
 ```
 
-At the end of compilation, you should have an `install/` folder in the
+At the end of compilation, you should have a `install/` folder in the
 libint-2.6.0 folder, which will have `lib/`, `include/`, and `share/`.
 This is important to know for our `CMAKE_PREFIX_PATH` variable later for
 building NWChemEx.
@@ -111,11 +111,11 @@ This essentially tricks QCEngine into running NWChem with `mpirun`.
 
 
 I like to set up my python environments in `/home/jacob/Environments/`, but
-the path doens't necessarily matter so long as your source it BEFORE you
+the path doesn't necessarily matter so long as your source it BEFORE you
 configure NWChemEx via `cmake` (otherwise the interpreter path for NWChemEx
 will be set to the incorrect path)
 
-```basy
+```bash
 cd /home/jacob/Environments
 python3 -m venv nwchemex-env
 # I prefer to source from an absolue path /home/jacob/Environments/nwchemex-env/bin/activate, but
@@ -170,7 +170,7 @@ git clone https://github.com/NWChemEx/ChemCache.git
 cd chemcache
 git checkout generated_data
 ```
-You can confirm that the generated data is available if you to to the
+You can confirm that the generated data is available if you go to the
 `src/chemcache/bases` folder and see more than just `sto_dash_3g` in
 the folder. Then you will want to add the following line to the
 `toolchain.cmake` file:
@@ -204,9 +204,10 @@ with the generated_data branch, this may cause the memory to be exceeded on your
 build process will take a while.
 
 Once the build is complete, you should have a folder named `install/` in the NWChemEx directory.
-We need to do a bit of cleanup since the NWChemEx install processes isn't fully working yet.
+We need to do a bit of cleanup since the NWChemEx install process isn't fully working yet.
 
-First, lets check out what is in install:
+First, let's check out what is in the `install/` folder:
+
 ```bash
 Permissions Size User  Date Modified Name
 drwxr-xr-x     - jacob 10 Jun 17:59  bin
@@ -227,13 +228,13 @@ drwxr-xr-x     - jacob 10 Jun 17:59  share
 ```
 
 The result of setting ``` -DNWX_MODULE_DIRECTORY=`pwd`/install ``` is that the pybind11 python
-modules (denoted by `.so`, so `parallelzone.so`, `chemcache.so`, etc.) as well as the `friendzone`
+modules (denoted by `.so` suffix, referencing `parallelzone.so`, `chemcache.so`, etc.) as well as the `friendzone`
 and `nwchemex` python modules are installed here. When you plan to start interacting with the
 NWChemEx stack via `python`, this is the path where you will set `PYTHONPATH` environment variable.
-This will allow `python` to find these modules so they can be imported like usual in a python setting
-(ie `import parallelzone`).
+This will allow `python` to find these modules, so they can be imported like usual in a python setting
+(i.e. `import parallelzone`).
 
-Now, lets go into the `lib/` folder:
+Now, let's go into the `lib/` folder:
 ```bash
 Permissions Size User  Date Modified Name
 drwxr-xr-x     - jacob 10 Jun 17:59  chemcache
@@ -260,8 +261,8 @@ lrwxrwxrwx     - jacob 10 Jun 17:59  libxc.so -> libxc.so.12
 ```
 
 In order to be able to use the build libraries for use with both the C++ and Python interfaces, we need
-to make it a bit easier to find the libraries. I do this by symlinking all the libraries with the chemcache,
-chemist, integrals, parallelzone, pluginplay, tensorwrapper, and utilities folders to the `lib/` directory.
+to make it a bit easier to find the libraries. I do this by symlinking all the libraries with the `chemcache`,
+`chemist`, `integrals`, `parallelzone`, `pluginplay`, `tensorwrapper`, and `utilities` folders to the `lib/` directory.
 You can do this via the following script from the `lib/` directory:
 ```bash
 #!/usr/bin/env bash
@@ -313,7 +314,7 @@ directory so that our Python modules can use them.
 Once all these steps are done, and the `PYTHONPATH` and `LD_LIBRARY_PATH` variables are set,
 this should result in a functioning Python interface.
 
-If you plan on using C++ to interact with NWChemEx, here is an example of how I make sure that my main.cpp
+If you plan on using C++ to interact with NWChemEx, here is an example of how I make sure that my `main.cpp`
 file is compiled correctly:
 ```Makefile
 CXXFLAGS = -std=c++23 -Wall -Wextra -g \
