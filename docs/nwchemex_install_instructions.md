@@ -38,8 +38,9 @@ cmake -S . -B build -DCMAKE_INSTALL_PREFIX=`pwd`/install
 ```
 
 If needed, you can confirm that the `CMAKE_INSTALL_PREFIX` variable was set via
-ccmake, but Ryan doesn't really like it when builds use `ccmake`, so I would just
-use to confirm variables.
+`ccmake`, but using `ccmake` to configure and generate the build usually results in
+undefined behavior for the build, so I would just use `ccmake` to confirm that
+variables have been set correctly.
 
 ```bash
 # OPTIONAL
