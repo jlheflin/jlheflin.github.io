@@ -1,3 +1,4 @@
+<pre> ```markdown --- header-includes: - \usepackage{listings} - \lstset{breaklines=true, breakatwhitespace=false} --- </pre>
 # NWChemEx Install Instructions
 
 ## Setup
@@ -212,7 +213,7 @@ cmake --build build --target install --parallel 4
 ```
 
 You can use more than 4 cores if needed, but if you are building the full ChemCache
-with the generated_data branch, this may cause the memory to be exceeded on your system.
+with the `generated_data` branch, this may cause the memory to be exceeded on your system.
 4 cores is pretty safe. If you are building the full ChemCache with generated data, this
 build process will take a while.
 
