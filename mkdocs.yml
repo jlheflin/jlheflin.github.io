@@ -2,6 +2,7 @@ site_name: jlheflin's Tips and Tricks
 site_url: https://jlheflin.github.io
 nav:
   - 'NWChemEx Install Guide': nwchemex_install_instructions.md
+  - 'Spack NWChem Install Guide': spack_nwchem_install_guide.md
 
 theme:
   name: material
