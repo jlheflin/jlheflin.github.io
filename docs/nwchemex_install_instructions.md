@@ -1,4 +1,3 @@
-<pre> ```markdown --- header-includes: - \usepackage{listings} - \lstset{breaklines=true, breakatwhitespace=false} --- </pre>
 # NWChemEx Install Instructions
 
 ## Setup
